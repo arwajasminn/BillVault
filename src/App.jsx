@@ -8,6 +8,20 @@ import Approvals from "./pages/Approvals";
 import Settings from "./pages/Settings";
 
 function App() {
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("Logged in user:", result.user.email);
+
+      // later you can redirect to dashboard
+      // navigate("/dashboard");
+
+    } catch (error) {
+      console.error("Login error:", error.message);
+    }
+  };
+
   return (
     <BrowserRouter>
       <Layout>
