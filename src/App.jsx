@@ -1,50 +1,29 @@
-import { Typography, Button, Box } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard";
+import Upload from "./pages/Upload";
+import Bills from "./pages/Bills";
+import Requests from "./pages/Requests";
+import Approvals from "./pages/Approvals";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        width: "100vw",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
-      <Typography variant="h4">
-        BillVault 
-      </Typography>
-
-      <Typography variant="body1">
-        College Bill Management System
-      </Typography>
-
-     <Button
-  variant="contained"
-  size="large"
-  sx={{
-    borderRadius: "50px",
-    paddingX: 4,
-    paddingY: 1.5,
-    textTransform: "none",
-    fontSize: "16px",
-    backgroundColor: "#00bfa5",
-    boxShadow: "0px 6px 16px rgba(0,191,165,0.4)",
-    "&:hover": {
-      backgroundColor: "#00a896",
-    }
-  }}
->
-  Login with Google
-</Button>
-
-
-
-    </Box>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/bills" element={<Bills />} />
+          <Route path="/requests" element={<Requests />} />
+          <Route path="/approvals" element={<Approvals />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
 
